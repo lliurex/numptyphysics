@@ -5,9 +5,9 @@ INCLUDES = -IBox2D/Include
 desktopentry_DATA = data/numptyphysics.desktop
 serviceentry_DATA = data/numptyphysics.service
 icon_26x26_DATA = data/icon26/numptyphysics.png 
-icon_48x48_DATA = data/icon48/numptyphysics.png
+#icon_40x40_DATA = data/icon40/numptyphysics.png
 icon_64x64_DATA = data/icon64/numptyphysics.png
-#icon_scalable_DATA = data/icon64/numptyphysics.png
+icon_scalable_DATA = data/icon64/numptyphysics.png
 
 numptyphysics_SOURCES = \
 	Path.cpp \
@@ -32,8 +32,8 @@ numptyphysics_SOURCES = \
 	OsFreeDesktop.cpp \
 	OsWin32.cpp
 
-numptyphysics_CPPFLAGS = -IXX $(SDL_CFLAGS) $(HILDON_CFLAGS) $(FONTCONFIG_CFLAGS)
-numptyphysics_LDADD = libbox2d.a $(SDL_LIBS) $(HILDON_LIBS) $(FONTCONFIG_LIBS)
+numptyphysics_CPPFLAGS = -IXX $(SDL_CFLAGS) $(HILDON_CFLAGS)
+numptyphysics_LDADD = libbox2d.a $(SDL_LIBS) $(HILDON_LIBS)
 
 numptyphysics_DATA = \
 	data/C00_Title.npz \
@@ -58,7 +58,7 @@ numptyphysics_DATA = \
 	data/close.png \
 	data/record.png \
 	data/theend.png \
-	#data/femkeklaver.ttf
+	data/femkeklaver.ttf
 
 
 libbox2d_a_SOURCES = \

@@ -1,9 +1,10 @@
 [Desktop Entry]
+Encoding=UTF-8
 Version=1.0
 Type=Application
 Name=Numpty Physics
 Categories=Game;LogicGame;
-Exec=/usr/games/numptyphysics
+Exec=/usr/bin/numptyphysics
 StartupWMClass=NPhysics
 Icon=numptyphysics
 X-Icon-path=/usr/share/pixmaps
@@ -12,8 +13,7 @@ X-Window-Icon-Dimmed=numptyphysics
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable
 X-Osso-Service=org.maemo.garage.numptyphysics
-MimeType=application/x-numptyphysics-level;application/x-numptyphysics-collection;application/x-numptyphysics-demo;
-Keywords=crayon;puzzle;game;physics;2D;Box2D;logic;
+MimeType=application/x-numptyphysics-level;application/x-numptyphysics-collection;application/x-numptyphysics-demo
 
 [X-Osso-URI-Actions]
 http=X-Osso-URI-Action-Open;

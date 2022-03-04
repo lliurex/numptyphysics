@@ -321,7 +321,7 @@ class Dialog : public Panel
   void onTick( int tick );
   bool processEvent( SDL_Event& ev );
   bool onEvent( Event& ev );
-  void close();
+  bool close();
   virtual Container* content() { return m_content; }
   Button* leftControl() { return m_left; }
   Button* rightControl() { return m_right; }

@@ -1081,7 +1081,7 @@ bool Dialog::onEvent( Event& ev )
   return Panel::onEvent(ev);
 }
 
-void Dialog::close()
+bool Dialog::close()
 {
   if (m_parent) {
     //fprintf(stderr,"close dialog\n");    

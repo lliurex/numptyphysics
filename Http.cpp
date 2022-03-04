@@ -114,6 +114,7 @@ bool Http::get( const char* uri,
   }
 
   fclose ( m_file );
+  free( host );
   return m_size > 0;
 }
 
@@ -174,7 +175,6 @@ bool Http::post( const char* uri, const char*putname, const char* putfile,
       fprintf(stderr,"http_get wobbly: %s\n",w.what());
     }
   }
-  return true;
 }
 
 

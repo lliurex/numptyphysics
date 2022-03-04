@@ -114,7 +114,7 @@ bool Levels::addPath( const char* path )
 
 bool Levels::addLevel( const string& file, int rank, int index )
 {
-  return addLevel( getCollection(MISC_COLLECTION), file, rank, index );
+  addLevel( getCollection(MISC_COLLECTION), file, rank, index );
 }
 
 bool Levels::addLevel( Collection* collection,
@@ -248,7 +248,6 @@ int Levels::collectionFromLevel( int i, int *indexInCol )
       }
     }
   }
-  return -1;
 }
 
 std::string Levels::collectionName( int i, bool pretty )
