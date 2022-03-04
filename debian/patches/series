@@ -1,6 +1,0 @@
-desktop_file.patch
-fix_icons_installation.patch
-gcc-4.7.patch
-use_fontconfig.patch
-double-free-corruption.patch
-986692_no-return-statement.patch

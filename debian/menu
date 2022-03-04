@@ -1,6 +1,0 @@
-?package(numptyphysics):needs="X11" \
-  section="Games/Puzzles" \
-  title="Numpty Physics" \
-  longtitle="Numpty Physics - a crayon based physics puzzle game" \
-  icon="/usr/share/pixmaps/numptyphysics.xpm" \
-  command="/usr/games/numptyphysics"

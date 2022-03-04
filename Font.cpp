@@ -18,10 +18,6 @@
 #include "Config.h"
 #include <SDL/SDL_ttf.h>
 
-#ifdef HAVE_FONTCONFIG
-#include <fontconfig/fontconfig.h>
-#endif
-
 #define FONT(fONTpTR) ((TTF_Font*)((fONTpTR)->m_state))
 
 struct FontCanvas : public Canvas
@@ -35,34 +31,7 @@ struct FontCanvas : public Canvas
 Font::Font( const std::string& file, int ptsize )
 {
   TTF_Init();
-#ifdef HAVE_FONTCONFIG
-  std::string fname;
-  if( FcInit() )
-  {
-    FcResult    result;
-    FcChar8 	*fontfile;
-
-    FcPattern   *pat = FcNameParse( (FcChar8 *) file.c_str() );
-    FcConfigSubstitute (0, pat, FcMatchPattern);
-    FcDefaultSubstitute (pat);
-
-    FcPattern   *match = FcFontMatch (0, pat, &result);
-
-    FcPatternDestroy (pat);
-
-    FcPatternGetString(match, FC_FILE, 0, &fontfile);
-
-    fname = std::string((const char*)fontfile);
-  }
-  else
-  {
-    // no fontconfig, fallback to builtin font
-    fname = Config::findFile(file+".ttf");
-  }
-#else
-  std::string fname = Config::findFile(file+".ttf");
-#endif
-
+  std::string fname = Config::findFile(file);
   m_state = TTF_OpenFont( fname.c_str(), ptsize );
   m_height = metrics("M").y;
 }
@@ -124,20 +93,19 @@ void Font::drawWrap( Canvas* canvas, Rect area,
 
 const Font* Font::titleFont()
 {
-
-  static Font* f = new Font("femkeklaver",48);
+  static Font* f = new Font("femkeklaver.ttf",48);
   return f;
 }
 
 const Font* Font::headingFont()
 {
-  static Font* f = new Font("femkeklaver",32);
+  static Font* f = new Font("femkeklaver.ttf",32);
   return f;
 }
 
 const Font* Font::blurbFont()
 {
-  static Font* f = new Font("femkeklaver",24);
+  static Font* f = new Font("femkeklaver.ttf",24);
   return f;
 }
 
