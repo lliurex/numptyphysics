@@ -1,0 +1,92 @@
+Bug-Debian: https://bugs.debian.org/986692
+Forwarded: no
+Last-Update: 2021-04-22
+
+--- numptyphysics-0.2+svn157.orig/Game.h
++++ numptyphysics-0.2+svn157/Game.h
+@@ -58,7 +58,7 @@ struct GameControl
+   virtual ~GameControl() {}
+   virtual bool save( const char *file=NULL ) =0;
+   virtual bool send() =0;
+-  virtual bool load( const char* file ) {};
++  virtual bool load( const char* file ) { return false; };
+   virtual void gotoLevel( int l, bool replay=false ) =0;
+   virtual void clickMode(int cm) =0;
+   Levels& levels() { return *m_levels; }
+--- numptyphysics-0.2+svn157.orig/Http.cpp
++++ numptyphysics-0.2+svn157/Http.cpp
+@@ -114,7 +114,6 @@ bool Http::get( const char* uri,
+   }
+ 
+   fclose ( m_file );
+-  free( host );
+   return m_size > 0;
+ }
+ 
+@@ -175,6 +174,7 @@ bool Http::post( const char* uri, const
+       fprintf(stderr,"http_get wobbly: %s\n",w.what());
+     }
+   }
++  return true;
+ }
+ 
+ 
+--- numptyphysics-0.2+svn157.orig/Levels.cpp
++++ numptyphysics-0.2+svn157/Levels.cpp
+@@ -114,7 +114,7 @@ bool Levels::addPath( const char* path )
+ 
+ bool Levels::addLevel( const string& file, int rank, int index )
+ {
+-  addLevel( getCollection(MISC_COLLECTION), file, rank, index );
++  return addLevel( getCollection(MISC_COLLECTION), file, rank, index );
+ }
+ 
+ bool Levels::addLevel( Collection* collection,
+@@ -248,6 +248,7 @@ int Levels::collectionFromLevel( int i,
+       }
+     }
+   }
++  return -1;
+ }
+ 
+ std::string Levels::collectionName( int i, bool pretty )
+--- numptyphysics-0.2+svn157.orig/Scene.cpp
++++ numptyphysics-0.2+svn157/Scene.cpp
+@@ -616,6 +616,7 @@ bool Scene::activateStroke( Stroke *s )
+ {
+   activate(s);
+   m_recorder.activateStroke( m_strokes.indexOf(s) );
++  return true;
+ }
+ 
+ void Scene::getJointCandidates( Stroke* s, Path& pts )
+--- numptyphysics-0.2+svn157.orig/Ui.cpp
++++ numptyphysics-0.2+svn157/Ui.cpp
+@@ -1081,7 +1081,7 @@ bool Dialog::onEvent( Event& ev )
+   return Panel::onEvent(ev);
+ }
+ 
+-bool Dialog::close()
++void Dialog::close()
+ {
+   if (m_parent) {
+     //fprintf(stderr,"close dialog\n");    
+--- numptyphysics-0.2+svn157.orig/Ui.h
++++ numptyphysics-0.2+svn157/Ui.h
+@@ -321,7 +321,7 @@ class Dialog : public Panel
+   void onTick( int tick );
+   bool processEvent( SDL_Event& ev );
+   bool onEvent( Event& ev );
+-  bool close();
++  void close();
+   virtual Container* content() { return m_content; }
+   Button* leftControl() { return m_left; }
+   Button* rightControl() { return m_right; }
+--- numptyphysics-0.2+svn157.orig/Worker.cpp
++++ numptyphysics-0.2+svn157/Worker.cpp
+@@ -64,4 +64,5 @@ int WorkerBase::startThread(void* wbase)
+   event.user.data1 = wbase;
+   event.user.data2 = 0;
+   SDL_PushEvent(&event);
++  return 0;
+ }

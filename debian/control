@@ -1,0 +1,32 @@
+Source: numptyphysics
+Section: games
+Priority: optional
+Maintainer: Leo Costela <costela@debian.org>
+Build-Depends:
+ debhelper (>= 9),
+ dh-autoreconf,
+ imagemagick,
+ libfontconfig1-dev,
+ libsdl-image1.2-dev,
+ libsdl-ttf2.0-dev,
+ libsdl1.2-dev,
+ pkg-config
+Build-Conflicts:
+ autoconf2.13,
+ automake1.4
+Standards-Version: 4.4.1
+Homepage: http://numptyphysics.garage.maemo.org/
+
+Package: numptyphysics
+Architecture: any
+Depends:
+ fonts-femkeklaver,
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: crayon based physics puzzle game
+ Numpty Physics is a drawing puzzle game in the spirit (and style?) of
+ Crayon Physics using the same excellent Box2D engine. It melds cute
+ schoolbook-style graphics with a kind of realistic physics engine.
+ .
+ It includes a built-in editor so that you may build (and submit) your
+ own levels.

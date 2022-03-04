@@ -1,0 +1,36 @@
+From: Leo Costela <costela@debian.org>
+Date: Fri, 28 Feb 2014 15:08:58 +0100
+Subject: desktop_file
+
+Forwarded: no
+Author: Leo 'costela' Antunes <costela@debian.org>
+---
+ data/numptyphysics.desktop | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/data/numptyphysics.desktop b/data/numptyphysics.desktop
+index c764232..e5bcbba 100644
+--- a/data/numptyphysics.desktop
++++ b/data/numptyphysics.desktop
+@@ -1,10 +1,9 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Version=1.0
+ Type=Application
+ Name=Numpty Physics
+ Categories=Game;LogicGame;
+-Exec=/usr/bin/numptyphysics
++Exec=/usr/games/numptyphysics
+ StartupWMClass=NPhysics
+ Icon=numptyphysics
+ X-Icon-path=/usr/share/pixmaps
+@@ -13,7 +12,8 @@ X-Window-Icon-Dimmed=numptyphysics
+ X-HildonDesk-ShowInToolbar=true
+ X-Osso-Type=application/x-executable
+ X-Osso-Service=org.maemo.garage.numptyphysics
+-MimeType=application/x-numptyphysics-level;application/x-numptyphysics-collection;application/x-numptyphysics-demo
++MimeType=application/x-numptyphysics-level;application/x-numptyphysics-collection;application/x-numptyphysics-demo;
++Keywords=crayon;puzzle;game;physics;2D;Box2D;logic;
+ 
+ [X-Osso-URI-Actions]
+ http=X-Osso-URI-Action-Open;

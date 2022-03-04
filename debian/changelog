@@ -1,0 +1,99 @@
+numptyphysics (0.2+svn157-0.5) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian patch 986692_no-return-statement.patch adds return values
+    to prevent segfault at startup. Thanks Bernhard Übelacker.
+    Closes: #986692.
+
+ -- Drew Parsons <dparsons@debian.org>  Sat, 08 May 2021 10:36:36 +0200
+
+numptyphysics (0.2+svn157-0.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/control:
+    + Replace dependency of ttf-femkeklaver with
+      fonts-femkeklaver. (Closes: #805601)
+    + Bump Standards-Version to 4.4.1.
+  * debian/copyright: Refresh copyright information.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 11 Nov 2019 19:13:42 -0500
+
+numptyphysics (0.2+svn157-0.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add double-free-corruption.patch.
+    - Remove valgrind error "Source and destination overlap in
+      memcpy(0xf121b90, 0xf121b98, 944)".
+    - Fix double free or corruption bug. (Closes: #749025)
+    - Thanks to Dima Kogan for the report and Steven M. Robbins
+      for the patch.
+
+ -- Markus Koschany <apo@gambaru.de>  Mon, 02 Jun 2014 21:55:31 +0200
+
+numptyphysics (0.2+svn157-0.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Drop use_system_libbox2d.patch and remove build-dependency on libbox2d-dev.
+    - Numptyphysics FTBFS with the latest version of Box2D 2.3.0. Fall back to
+      the embedded copy of Box2D. (Closes: #735879)
+  * Rebase use_fontconfig.patch.
+  * Drop autotools-dev and automake build-dependencies. Use dh-autoreconf
+    instead.
+  * Add longtitle and icon entry to menu file. Convert numptyphysics.png to
+    numptypysics.xpm at build time and add the resulting xpm icon to the clean
+    file. Install xpm icon to /usr/share/pixmaps. (Closes: #737979)
+  * wrap-and-sort -sa.
+  * Bump compat level to 9 and require debhelper >= 9 for automatic hardening
+    build flags.
+  * Add keywords to desktop file and update desktop-file.patch.
+
+ -- Markus Koschany <apo@gambaru.de>  Fri, 28 Feb 2014 15:04:33 +0100
+
+numptyphysics (0.2+svn157-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream svn commit. (Closes: #732336)
+  * debian/changelog:
+   - Fix unversioned-copyright-format-uri lintian pedantic warning;
+   - Fix obsolete-field-in-dep5-copyright format-specification lintian warning;
+   - Fix ambiguous-paragraph-in-dep5-copyright lintian warning;
+   - Fix comma-separated-files-in-dep5-copyright lintian warning.
+  * debian/control: Bump Standard-Version to 3.9.5, no changes required.
+
+ -- Mattia Rizzolo <mattia@mapreri.org>  Sat, 28 Dec 2013 11:41:37 +0100
+
+numptyphysics (0.2+svn156-1.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/rules
+    - Add "-fi" option to autoreconf. (Closes: #725546)
+
+ -- Hideki Yamane <henrich@debian.org>  Thu, 17 Oct 2013 12:09:55 +0900
+
+numptyphysics (0.2+svn156-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix "ftbfs with GCC-4.7": add patch gcc-4.7.patch (missing include).
+    (Closes: #667302)
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 11 May 2012 00:17:52 +0200
+
+numptyphysics (0.2+svn156-1) unstable; urgency=low
+
+  * New upstream SVN snapshot.
+  * Refresh all patches in debian/patches.
+  * Bump standards version to 3.8.4 (no changes required).
+
+ -- Leo Costela <costela@debian.org>  Sun, 20 Jun 2010 15:02:21 +0200
+
+numptyphysics (0.2+svn149-1) unstable; urgency=low
+
+  [Leo 'costela' Antunes]
+  * Initial release. (Closes: #496586)
+  * Use fontconfig, if available.
+
+  [Gabriele Giacone]
+  * Add debian/numptyphysics.6 manpage.
+  * Add debian/clean.
+
+ -- Leo Costela <costela@debian.org>  Sun, 10 Jan 2010 16:42:57 +0100

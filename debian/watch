@@ -1,0 +1,6 @@
+version=3
+
+opts=uversionmangle=s/^/0.2+svn/ \
+ https://garage.maemo.org/plugins/scmsvn/viewcvs.php/trunk/?root=numptyphysics \
+ /plugins/.*revision=(\d+) \
+ debian uupdate

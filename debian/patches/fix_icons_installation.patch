@@ -1,0 +1,52 @@
+Description: don't install PNG in scalable directory and add 48x48 icon
+
+Forwarded: no
+Author: Leo 'costela' Antunes <costela@debian.org>
+
+Index: numptyphysics-0.2+svn156/Makefile.am
+===================================================================
+--- numptyphysics-0.2+svn156.orig/Makefile.am	2010-06-20 15:10:31.000000000 +0200
++++ numptyphysics-0.2+svn156/Makefile.am	2010-06-20 15:10:44.000000000 +0200
+@@ -3,9 +3,9 @@
+ desktopentry_DATA = data/numptyphysics.desktop
+ serviceentry_DATA = data/numptyphysics.service
+ icon_26x26_DATA = data/icon26/numptyphysics.png 
+-#icon_40x40_DATA = data/icon40/numptyphysics.png
++icon_48x48_DATA = data/icon48/numptyphysics.png
+ icon_64x64_DATA = data/icon64/numptyphysics.png
+-icon_scalable_DATA = data/icon64/numptyphysics.png
++#icon_scalable_DATA = data/icon64/numptyphysics.png
+ 
+ numptyphysics_SOURCES = \
+ 	Path.cpp \
+Index: numptyphysics-0.2+svn156/configure.in
+===================================================================
+--- numptyphysics-0.2+svn156.orig/configure.in	2010-06-20 15:10:31.000000000 +0200
++++ numptyphysics-0.2+svn156/configure.in	2010-06-20 15:10:44.000000000 +0200
+@@ -48,7 +48,7 @@
+    numptyphysicsdir=/opt/numptyphysics
+    icon_26x26dir=$datadir/icons/hicolor/26x26/hildon
+    icon_34x34dir=$datadir/icons/hicolor/34x34/hildon
+-   icon_40x40dir=$datadir/icons/hicolor/40x40/hildon
++   icon_48x48dir=$datadir/icons/hicolor/48x48/hildon
+    icon_50x50dir=$datadir/icons/hicolor/50x50/hildon
+    icon_64x64dir=$datadir/icons/hicolor/64x64/hildon
+    icon_scalabledir=$datadir/icons/hicolor/scalable/hildon
+@@ -60,7 +60,7 @@
+    numptyphysicsdir=$datadir/numptyphysics
+    icon_26x26dir=$datadir/icons/hicolor/26x26/apps
+    icon_34x34dir=$datadir/icons/hicolor/34x34/apps
+-   icon_40x40dir=$datadir/icons/hicolor/40x40/apps
++   icon_48x48dir=$datadir/icons/hicolor/48x48/apps
+    icon_50x50dir=$datadir/icons/hicolor/50x50/apps
+    icon_64x64dir=$datadir/icons/hicolor/64x64/apps
+    icon_scalabledir=$datadir/icons/hicolor/scalable/apps
+@@ -70,7 +70,7 @@
+ AC_SUBST(numptyphysicsdir)
+ AC_SUBST(icon_26x26dir)
+ AC_SUBST(icon_34x34dir)
+-AC_SUBST(icon_40x40dir)
++AC_SUBST(icon_48x48dir)
+ AC_SUBST(icon_50x50dir)
+ AC_SUBST(icon_64x64dir)
+ AC_SUBST(icon_scalabledir)
